@@ -1,0 +1,270 @@
+<html lang="es">   
+    <head> 
+        <meta charset="utf-8"> <!--codificación de caracteres, soporta acentos, eñes, etc.-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--adapta la página a pantallas móviles.-->
+        <meta name="description" content="Juega al juego del Ahorcado en el navegador!!">
+        <meta name="keywords" content="ahorcado, juegos, adivina palabras, juegos en linea, palabras">
+        <meta name="author" content="Florencia Sevilla, Brandon Williams">
+
+        <link rel="icon" type="image/png" href="../../fotos/logo_color.png">
+        <!--archivos CSS externos para estilos-->
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/header.css">
+        <link rel="stylesheet" href="../../css/juego.css">
+        <link rel="stylesheet" href="../../css/footer.css">
+
+        <title>Hanguesser (beta)</title>
+    </head>
+
+    <body>  <!--contenido visible de la página-->
+        <header>
+            <!--cabecera-->
+            <div id="logo_udc">
+                <a href="https://udc.edu.ar/">
+                    <img src="../../fotos/logo_udc.jpg" width="130" alt="logo udc">
+                </a>
+            </div>
+
+            <div class="center">
+                <div class="titulo">Hanguesser</div>
+                <a href="./inicio_usuario.html">
+                    <img src="/fotos/logo_color.png" width="100" alt="Logo">
+                </a>
+            </div>
+
+            <!--menu desplegable--> 
+            <nav id="menu" class="menu">
+                <div class="submenu">
+                    <a>Menu</a>
+                    <ul class="desplegable">
+                        <li>
+                            <a href="./perfil.html">Perfil </a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a href="https://www.youtube.com/watch?v=xv5PG-U6tXk">Como Jugar</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a href="../../index.html">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+
+        <main class="horizontal">
+            <object id="imagenAhorcado" data="/fotos/ahorcado0.jpg" type="image/jpeg" width="250" height="250">
+                Tu navegador no soporta imágenes
+            </object>
+
+            <section class="vertical">
+                <!--tabla que representa la palabra a adivinar-->
+                <table id="palabraAdivinar"> 
+                    <tbody>
+                        <tr id="filaLetras"></tr>
+                    </tbody>
+                </table>
+
+                <section id="formulario">
+                    <form class="contorno">
+                        <input type="text" id="letra" name="letra" required placeholder="Ingresar letra" pattern="[A-Za-z]" maxlength="1" class="formulario">
+                        <button type="submit"  class="prueba">✔</button>
+                    </form>
+                </section>
+            </section>
+
+            <section class="horizontal">
+                <!-- Solo muestra la parte de la tabla teclado -->
+                <table class="teclado">
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td>F</td>
+                            <td>K</td>
+                            <td>P</td>
+                            <td>U</td>
+                            <td>z</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>G</td>
+                            <td>L</td>
+                            <td>Q</td>
+                            <td>V</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>H</td>
+                            <td>M</td>
+                            <td>R</td>
+                            <td>W</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>I</td>
+                            <td>N</td>
+                            <td>S</td>
+                            <td>X</td>
+                        </tr>
+                        <tr>
+                            <td>E</td>
+                            <td>J</td>
+                            <td>Ñ</td>
+                            <td>T</td>
+                            <td>Y</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+        </main>
+
+        <!--tabla de ranking-->
+        <div class="contorno">
+            <table>
+                <thead> <!--Sección para los títulos de columna-->
+                    <tr> <!--tr: fila-->
+                        <th>Ranking</th> <!--th: Define encabezado de cada columna-->
+                        <th>Usuario</th>
+                        <th>Puntaje</th>
+                        <th>Palabras acertadas</th>
+                        <th>Promedio de intentos</th>
+                        <th>Palabra más larga</th>
+                    </tr>
+                </thead>
+                <tbody> <!--Agrupa el cuerpo de la tabla-->
+                    <tr> 
+                        <td>1</td> <!--td: celda de datos-->
+                        <td>colofalsa</td>
+                        <td>982</td>
+                        <td>95</td>
+                        <td>3</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>nikovsky</td>
+                        <td>940</td>
+                        <td>89</td>
+                        <td>5</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>gamma</td>
+                        <td>882</td>
+                        <td>83</td>
+                        <td>4</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>daekast</td>
+                        <td>834</td>
+                        <td>78</td>
+                        <td>6</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>gozme</td>
+                        <td>790</td>
+                        <td>71</td>
+                        <td>6</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>bichichu</td>
+                        <td>743</td>
+                        <td>65</td>
+                        <td>6</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>elbeatle82</td>
+                        <td>701</td>
+                        <td>58</td>
+                        <td>7</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>tachelo</td>
+                        <td>655</td>
+                        <td>50</td>
+                        <td>9</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>brandonico</td>
+                        <td>603</td>
+                        <td>42</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>lasonidas</td>
+                        <td>550</td>
+                        <td>36</td>
+                        <td>10</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>233</td>
+                        <td>Tú</td>
+                        <td>5</td>
+                        <td>4</td>
+                        <td>20%</td>
+                        <td>17</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <h1>Hanguesser</h1>
+                <h3>2025</h3>
+            </div>
+
+            <section class="vertical autor">
+                <h3>Creadores de la página:</h3>
+                <div class="horizontal">
+                    <div>
+                        <h4>Florencia Sevilla</h4>
+                        <div>
+                            <a href="mailto:fasevilla@udc.edu.ar">fasevilla@udc.edu.ar</a>
+                        </div>
+                        <div>
+                            <a href="https://www.instagram.com/fsevilla29/">
+                                <img src="/fotos/insta.webp" width="20" alt="instagram">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4>Brandon Williams</h4>
+                        <div>
+                            <a href="mailto:bnwilliams@udc.edu.ar">bnwilliams@udc.edu.ar</a>
+                        </div>
+                        <div>
+                            <a href="https://www.instagram.com/branwlls/">
+                                <img src="/fotos/insta.webp" width="20" alt="instagram">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </footer>
+        
+        <script src="/js/ahorcado.js"></script>
+
+    </body>
+</html>

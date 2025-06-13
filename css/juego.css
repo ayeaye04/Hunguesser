@@ -1,0 +1,90 @@
+/* Juego */
+main {
+    background-color: #16a93b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 2em 0;
+    justify-content: space-between; /*separa el contenido a hacia los extremos*/
+    align-items: center; /*alinea verticalmente al centro*/ 
+}
+/*boton para enviar letra*/
+.prueba {
+    margin-left: 5px;
+    align-items: center;
+    background-color: #53d060;
+    color: #ffffff;
+    padding: .1em .45em;
+    font-size: 2em;
+    border-radius: 378px;
+    display: inline-flex;
+}
+
+form input,
+select {
+    width: 100%; 
+    padding: 15px; 
+    font-size: 18px;        
+    border-radius: 8px; 
+    border: 2px solid #ddd; 
+}
+
+/*borde de ranking*/
+.contorno {
+    background-color:#b3e59f;
+    border-radius: .5em;
+    display: flex;
+    justify-content: center;
+    padding: 1.4em;
+}
+
+.contorno table {
+    width: auto;
+    max-width: 80%;
+    border-collapse: collapse;
+}
+
+.casillero {
+    border-color: black;
+    background-color: #b3e59f;
+    padding: 1.4em;
+    border-radius: .5em;
+}
+
+.contorno td {
+    border-left: 2px solid white;
+    text-align: center;
+    padding: 1px;
+}
+
+.contorno td:first-child {
+    border-left: none;
+}
+
+
+/* Personalización de la tabla de letras del teclado */
+.teclado {
+    border-spacing: 1.5em 0.3em; /* 1.5em entre columnas, 0.3em entre filas */
+}
+
+.teclado td {
+    background-color: #53d060; /* color de fondo de cada celda */
+    font-size: 1em;          /* tamaño de fuente */
+    font-family: 'occams_eraser', sans-serif; /* fuente opcional */
+    text-align: center;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    border: 2px solid #237930; /* borde de cada celda */
+}
+
+.tecla.correcta {
+    background-color: #a0e57c;
+    border-color: #6bbf3f;
+}
+
+.tecla.incorrecta {
+    background-color: #f08080;
+    border-color: #c05050;
+}

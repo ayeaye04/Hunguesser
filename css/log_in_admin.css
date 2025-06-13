@@ -1,0 +1,52 @@
+/*inicio de secion para administradores*/
+main {
+    background-color: #16a93b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 2em 0;
+}
+
+main .volver {
+    position: absolute;
+    top: 5.4em;
+    left: 10px;
+    display: flex;
+}
+
+form input {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    margin-bottom: 1em;
+}
+
+fieldset {
+    padding-top: 20px;
+    align-items: center;
+    border: none;
+    text-align: center;
+}
+
+legend {
+    font-size: 2em; 
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.boton {
+    background-color: #fcd24f;
+    align-items: center;
+    color: black;
+    font-family: 'occams_eraser', sans-serif;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    display: inline-flex;
+    flex-wrap: wrap;
+}

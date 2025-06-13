@@ -1,0 +1,33 @@
+/* General */
+:root {
+    background-color: #16a93b;
+}
+
+@font-face {
+    font-family: 'occams_eraser';
+    src: url('../fuentes/occams_eraser.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'occams_eraser', sans-serif;
+}
+
+.horizontal {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 12lh;
+}

@@ -1,0 +1,88 @@
+/* Header */
+header {
+    position: sticky; /*no le afecta el scroll*/
+    top: 0; 
+    left: 0; 
+    width: 100%; /*ocupa todo el ancho posible*/
+    background-color:#237930; /*color de fondo*/
+    display: flex; /*organiza los elementos horizontalmente*/
+    justify-content: space-between; /*separa el contenido a hacia los extremos*/
+    align-items: center; /*alinea verticalmente al centro*/ 
+    z-index: 10; 
+}
+
+/*Titulo y logo del juego*/
+header .center {
+    text-align: center; /*centra el texto horizontalmente*/
+    display: flex; /*organiza al titulo y la imagen de forma horizontal*/
+    align-items: center; /*centra de forma vertical*/
+    justify-content: center; /*centra de forma horizontal*/
+    flex: 1; /*Hace que este elemento ocupe todo el espacio disponible dentro de su contenedor*/
+}
+/*display: define como se comporta un elemento en la página*/
+
+/*título del juego*/
+header .titulo {
+    font-size: 4rem; /*Tamaño de fuente, ajusta este valor según lo necesites*/
+    color: #ffffff; 
+    margin-right: 10px; /*espacio a la derecha del título*/
+    display: inline-block; /*se alinea horizontalmente*/
+    white-space: nowrap; /* Evita que se quiebre la palabra en varias lineas*/
+}
+
+/*boton de salir en admin*/
+header .salir{
+    background-color: #fcd24f;
+    color: black;
+    font-family: 'occams_eraser', sans-serif;
+    font-size: 1.5em; 
+    max-width: 7em; 
+    padding: .5em 1em;
+    border-radius: .5em;
+    display: inline-flex; 
+    margin-right: .5em;
+    white-space: nowrap; /* Evita que se quiebre la palabra en varias lineas*/
+}
+
+/* Menu */
+#menu {
+    background-color: #fcd24f;
+    color: #251847;
+    padding: .5em 1em; /*separa texto del borde del fondo*/
+    border-radius: .5em; /*redondeo*/
+    display: inline-flex; 
+    white-space: nowrap; /* Evita que se quiebre la palabra en varias lineas*/
+    min-width: 3vw; 
+    min-height: 1.5vw;
+    font-size: 1.5em;
+    margin-right: .5em;
+    align-items: center; /*Alinea verticalmente el contenido al centro del contenedor.*/
+    justify-content: center; /*Alinea horizontalmente el contenido al centro del contenedor.*/
+}
+
+#menu .submenu {
+    position: relative; /*los elementos hijos se posicionan en relación al contenedor y no a la pantalla*/
+}
+
+#menu .desplegable {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0; /*oculta el contenido*/ 
+    position: absolute; 
+    background-color: #fffcf2;
+    padding: 1em;
+    top: 100%; /*lo coloca justo debajo del menu*/
+    right: 0; 
+    flex-direction: column; /*las opciones se organiza en columnas*/
+    gap: 1em; /*espacio entre los elementos*/
+    transition: max-height 0.2s ease, opacity 0.2s ease;
+}
+/*activa el menu desplegable al pasar el mouse*/
+#menu .submenu:hover .desplegable {
+    max-height: 500px;
+    opacity: 1; /*el conttenido se vuelve visible*/
+}
+
+#menu a {
+    text-decoration: none;
+}

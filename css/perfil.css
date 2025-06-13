@@ -1,0 +1,59 @@
+/*ajustes del perfil*/
+
+main {
+    background-color: #16a93b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 2em 0;
+}
+
+h2, h3 {
+    margin: 0;
+    font-size: 2em;
+    color: #ffffff;
+}
+
+
+main .confirmar{
+    background-color: #fcd24f;
+    color: black;
+    font-family: 'occams_eraser', sans-serif;
+    white-space: nowrap;
+    font-size: .8em;
+    max-width: auto;
+    padding: .5em 1em;
+    border-radius: .5em;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+main .salir{
+    background-color: #f81f00;
+    color: #f4eee8;
+    font-family: 'occams_eraser', sans-serif;
+    font-size: .8em;
+    max-width: auto;
+    padding: .5em 1em;
+    border-radius: .5em;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+fieldset{
+    align-items: center;
+    border: none;
+    text-align: center;
+}
+
+form input,
+select {
+    width: 100%; 
+    padding: .5em;
+    font-size: 18px;        
+    border-radius: 8px; 
+    border: 2px solid #ddd;  
+}

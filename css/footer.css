@@ -1,0 +1,38 @@
+/*pie de página*/
+footer {
+    background-color: #237930;
+    color: white;
+    font-size: 1em; /* Puedes cambiar este valor según lo necesites */
+    padding: 1em;
+    position: relative;
+    height: 10em;
+    overflow: hidden;
+    margin-top: auto;
+
+}
+
+footer .autor {
+    position: absolute;
+    bottom: -30%;
+    right: 1%;
+}
+
+footer h4 {
+    margin-bottom: 0.2em;
+}
+
+
+footer .admin{
+    background-color: #f81f00;
+    color: #f4eee8;
+    font-family: 'occams_eraser', sans-serif;
+    font-size: .7em;
+    max-width: 10em;
+    border-radius: .5em;
+    margin-top: -1%;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+
+

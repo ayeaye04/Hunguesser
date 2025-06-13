@@ -1,0 +1,124 @@
+/* Contenedor principal horizontal */
+main.horizontal {
+    display: flex;
+    gap: 3em;
+    padding: 2em;
+    justify-content: center;
+}
+
+/* Cada sección (formulario) */
+main.horizontal section {
+    flex: 1;
+    min-width: 320px; /* para que no se achique demasiado */
+}
+
+/* Fieldset con layout vertical para el login */
+fieldset.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border: 2px solid black;
+    border-radius: 1em;
+    padding: 1.5em;
+}
+
+/* Fieldset para nuevo usuario, mismo estilo pero con columnas internas */
+form fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border: 2px solid black;
+    border-radius: 1em;
+    padding: 1.5em;
+}
+
+/* Leyendas (títulos) */
+legend {
+    font-weight: bold;
+    font-size: 1.3em;
+    padding: 0 0.5em;
+}
+
+/* Contenedor con dos columnas para inputs */
+.form-doble-columna {
+    display: flex;
+    gap: 2em;
+}
+
+/* Cada columna con inputs verticales */
+.columna {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    flex: 1; /* columnas iguales */
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    margin-bottom: 0.2em;
+}
+
+/* Inputs y select básicos */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    padding: 0.4em 0.6em;
+    border: 1.5px solid #777;
+    border-radius: 0.4em;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #fcd24f;
+    outline: none;
+}
+
+/* Checkbox con texto al lado */
+.recordar {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    margin-top: 0.5em;
+}
+
+/* Botones con estilo visual */
+.boton {
+    background-color: #fcd24f;
+    color: black;
+    font-family: 'occams_eraser', sans-serif;
+    font-size: 1em;
+    padding: 0.5em 1.2em;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    display: inline-block;
+    max-width: 200px;
+    margin-top: 1em;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+    background-color: #e0b93d;
+}
+
+/* Centrar el botón en su contenedor (fieldset) */
+form fieldset > .boton {
+    align-self: center;
+}
+
+/* Para que el formulario de nuevo usuario no se desborde */
+@media (max-width: 720px) {
+    .form-doble-columna {
+        flex-direction: column;
+    }
+}

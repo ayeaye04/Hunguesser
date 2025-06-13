@@ -1,0 +1,26 @@
+/*pagina de administracion*/
+main {
+    background-color: #16a93b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 2em 0;
+}
+
+main .confirmar {
+    align-items: center;
+    background-color: #fcd24f;
+    color: black;
+    font-family: 'occams_eraser', sans-serif;
+    font-size: 1em;
+    width: 18em;
+    padding: 1em 2em;
+    border-radius: .5em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
