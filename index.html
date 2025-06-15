@@ -6,12 +6,12 @@
         <meta name="keywords" content="ahorcado, juegos, adivina palabras, juegos en linea, palabras">
         <meta name="author" content="Florencia Sevilla, Brandon Williams">
 
-        <link rel="icon" type="image/png" href="/fotos/logo_color.png"> 
+        <link rel="icon" type="image/png" href="./fotos/logo_color.png"> 
         <!--archivos CSS externos para estilos-->
-        <link rel="stylesheet" href="/css/general.css">
-        <link rel="stylesheet" href="/css/header.css">
-        <link rel="stylesheet" href="/css/juego.css">
-        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="./css/general.css">
+        <link rel="stylesheet" href="./css/header.css">
+        <link rel="stylesheet" href="./css/juego.css">
+        <link rel="stylesheet" href="./css/footer.css">
         
         <title>Hanguesser (beta)</title>        
     </head>
@@ -21,14 +21,14 @@
             <!--cabecera-->
             <div id="logo_udc">
                 <a href="https://udc.edu.ar/">
-                    <img src="/fotos/logo_udc.jpg" width="130" alt="logo udc">
+                    <img src="./fotos/logo_udc.jpg" width="130" alt="logo udc">
                 </a>
             </div>
             
             <div class="center">
                 <div class="titulo">Hanguesser</div>
-                <a href="/index.html">
-                    <img src="/fotos/logo_color.png" width="100" alt="Logo">
+                <a href="./index.html">
+                    <img src="./fotos/logo_color.png" width="100" alt="Logo">
                 </a>
             </div>
             <!--menú desplegable: "inicio sesion" y "como jugar"--> 
@@ -37,11 +37,11 @@
                     <a>Menu</a>
                     <ul class="desplegable">
                         <li>
-                            <a href="/partes/internet/log_in.html">Iniciar Sesión </a>
+                            <a href="./partes/internet/log_in.html">Iniciar Sesión </a>
                         </li>
                         <hr>
                         <li>
-                            <a href="https://www.youtube.com/watch?v=xv5PG-U6tXk">Como Jugar</a>
+                            <a href="./partes/internet/como_jugar.html">Como Jugar</a>
                         </li>
                     </ul>
                 </div>
@@ -50,7 +50,7 @@
         
         <!--contenido principal-->
         <main class="horizontal">
-            <img id="imagenAhorcado" src="fotos/ahorcado0.jpg" alt="Ahorcado" width="250" height="250">
+            <img id="imagenAhorcado" src="./fotos/ahorcado0.jpg" alt="Ahorcado" width="250" height="250">
             
             <section class="vertical">
                 <!--tabla que representa la palabra a adivinar-->
@@ -131,7 +131,7 @@
                         </div>
                         <div>
                             <a href="https://www.instagram.com/fsevilla29/">
-                                <img src="/fotos/insta.webp" width="20" alt="instagram">
+                                <img src="./fotos/insta.webp" width="20" alt="instagram">
                             </a>
                         </div>
                     </div>
@@ -143,7 +143,7 @@
                         </div>
                         <div>
                             <a href="https://www.instagram.com/branwlls/">
-                                <img src="/fotos/insta.webp" width="20" alt="instagram">
+                                <img src="./fotos/insta.webp" width="20" alt="instagram">
                             </a>
                         </div>
                     </div>
@@ -155,11 +155,11 @@
         <script>
             document.getElementById("login-link").addEventListener("click", function(event) {
                 event.preventDefault();
-                window.location.href = "/partes/internet/log_in.html"; 
+                window.location.href = "./partes/internet/log_in.html"; 
             });
         </script>
 
-        <script src="/js/ahorcado.js"></script>
+        <script src="./js/ahorcado.js"></script>
         
     </body>
 </html>
