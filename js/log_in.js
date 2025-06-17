@@ -1,12 +1,14 @@
 class Usuario {
-    constructor(email, password, nombre) {
+    constructor(email, password, nombre, apellido, alias) {
         this.email = email;
         this.password = password;
         this.nombre = nombre;
+        this.apellido = apellido;
+        this.alias = alias;
     }
 
     static fromObject(obj) {
-        return new Usuario(obj.email, obj.password, obj.nombre);
+        return new Usuario(obj.email, obj.password, obj.nombre, obj.apellido, obj.alias);
     }
 }
 
@@ -22,8 +24,10 @@ class GestorUsuarios {
         }
         // Usuarios de ejemplo
         return [
-            new Usuario("pepemuleio@correo.com", "12345", "Pepe Muleio"),
-            new Usuario("martinzapa@gmail.com", "12345", "Martin Zapa")
+            new Usuario("pepemuleio@correo.com", "12345", "Pepe", "Muleio", "pepegamer"),
+            new Usuario("martinzapa@gmail.com", "12345", "Martin", "Zapa", "martincito"),
+            new Usuario("fasevilla@udc.edu.ar", "12345", "Florencia", "Sevilla", "colofalsa"),
+            new Usuario("bnwilliams@udc.edu.ar", "12345", "Brandon", "Williams", "brandonico")
         ];
     }
 
