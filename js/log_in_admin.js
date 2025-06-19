@@ -1,16 +1,16 @@
-class Usuario {
-    constructor(email, password, nombre, apellido, alias) {
+class SuperUsuario {
+    constructor(email, password, nombre, apellido) {
         this.email = email;
         this.password = password;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.alias = alias;
     }
 
     static fromObject(obj) {
-        return new Usuario(obj.email, obj.password, obj.nombre, obj.apellido, obj.alias);
+        return new SuperUsuario(obj.email, obj.password, obj.nombre, obj.apellido);
     }
 }
+
 
 class GestorUsuarios {
     constructor() {
@@ -20,14 +20,12 @@ class GestorUsuarios {
     cargarUsuarios() {
         const guardados = localStorage.getItem('usuarios');
         if (guardados) {
-            return JSON.parse(guardados).map(Usuario.fromObject);
+            return JSON.parse(guardados).map(SuperUsuario.fromObject);
         }
         // Usuarios de ejemplo
         return [
-            new Usuario("pepemuleio@correo.com", "12345", "Pepe", "Muleio", "pepegamer"),
-            new Usuario("martinzapa@gmail.com", "12345", "Martin", "Zapa", "martincito"),
-            new Usuario("fasevilla@udc.edu.ar", "12345", "Florencia", "Sevilla", "colofalsa"),
-            new Usuario("bnwilliams@udc.edu.ar", "12345", "Brandon", "Williams", "brandonico")
+            new SuperUsuario("fasevilla@udc.edu.ar", "12345", "Florencia", "Sevilla"),
+            new SuperUsuario("bnwilliams@udc.edu.ar", "12345", "Brandon", "Williams")
         ];
     }
 
@@ -42,18 +40,18 @@ class GestorUsuarios {
 
 document.addEventListener('DOMContentLoaded', function() {
     const gestor = new GestorUsuarios();
-    const form = document.querySelector('form[action="../extranet/inicio_usuario.html"]');
+    const form = document.getElementById('form_admin'); // Cambiado a selección por id
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            const email = form.usuario.value.trim();
-            const password = form.contrasenia.value.trim();
+            const email = form.usuario_admin.value.trim();
+            const password = form.contrasenia_admin.value.trim();
 
             const user = gestor.buscarUsuario(email, password);
 
             if (user) {
                 localStorage.setItem('usuario', JSON.stringify(user));
-                window.location.href = "../extranet/inicio_usuario.html";
+                window.location.href = "../Intranet/admin.html";
             } else {
                 alert("Usuario o contraseña incorrectos.");
             }
