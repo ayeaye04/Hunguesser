@@ -30,7 +30,12 @@ function inicializarTablero() {
 
 function actualizarImagenAhorcado() {
     const img = document.getElementById("imagenAhorcado");
-    img.src = `fotos/ahorcado${errores}.jpg`;
+    const paginaActual = window.location.pathname.split('/').pop();
+    if (paginaActual === "inicio_usuario.html") {
+        img.src = "../../fotos/ahorcado" + errores + ".jpg";
+    } else {
+        img.src = "fotos/ahorcado" + errores + ".jpg";
+    }
 }
 
 function mostrarLetrasCorrectas(letra) {

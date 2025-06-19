@@ -41,7 +41,7 @@ header .salir{
     border-radius: .5em;
     display: inline-flex; 
     margin-right: .5em;
-    white-space: nowrap; /* Evita que se quiebre la palabra en varias lineas*/
+    white-space: nowrap;
 }
 
 /* Menu */
@@ -51,7 +51,7 @@ header .salir{
     padding: .5em 1em; /*separa texto del borde del fondo*/
     border-radius: .5em; /*redondeo*/
     display: inline-flex; 
-    white-space: nowrap; /* Evita que se quiebre la palabra en varias lineas*/
+    white-space: nowrap;
     min-width: 3vw; 
     min-height: 1.5vw;
     font-size: 1.5em;

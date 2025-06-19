@@ -56,4 +56,42 @@ document.addEventListener('DOMContentLoaded', function() {
             <button>✏️</button>
         `;
     }
+
+    const tdNombreUsuario = document.querySelector('td#NombreUsuario');
+    if (tdNombreUsuario) {
+        tdNombreUsuario.textContent = usuario.alias;
+    }
+});
+
+/*cambiar contraseñas*/
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('cambio_contrasenia');
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+    if (!form || !usuario) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const password = form.contrasenia_original.value;
+        const nueva = form.contrasenia_nueva.value;
+        const confirmar = form.confirmar_contrasenia.value;
+
+        if (password !== usuario.password) {
+            alert("La contraseña actual es incorrecta.");
+            return;
+        }
+
+        if (nueva !== confirmar) {
+            alert("Las contraseñas nuevas no coinciden.");
+            return;
+        }
+
+        // Simula el cambio de contraseña en localStorage
+        usuario.password = nueva;
+        localStorage.setItem('usuario', JSON.stringify(usuario));
+        alert("Contraseña cambiada exitosamente.");
+        form.reset();
+        // Opcional: location.reload();
+    });
 });
