@@ -1,13 +1,12 @@
+
+
 main {
     background-color: #16a93b;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    width: 80%;
     margin: 0 auto;
-    padding: 2em 0;
-    justify-content: space-between; /*separa el contenido a hacia los extremos*/
-    align-items: center; /*alinea verticalmente al centro*/ 
-    color: #fff;
-    text-align: center;
+    width: 100%;
+    min-height: 0;
+    height: auto;
 }
