@@ -64,9 +64,9 @@ select {
 }
 
 
-/* Personalización de la tabla de letras del teclado */
+/*personalizacion de la tabla de letras*/
 .teclado {
-    border-spacing: 1.5em 0.3em; /* 1.5em entre columnas, 0.3em entre filas */
+    border-spacing: 1.5em 0.3em; /*columnas,  filas*/
 }
 
 .teclado td {

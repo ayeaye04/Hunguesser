@@ -19,9 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Inserta el enlace de perfil como primer elemento del menú
         menu.insertBefore(liPerfil, menu.firstChild);
 
-        // (Opcional) Si quieres un <hr> después:
-        // const hr = document.createElement('hr');
-        // menu.insertBefore(hr, liPerfil.nextSibling);
     }
 
     // Redirección dinámica al hacer clic en "Perfil" desde el menú
@@ -92,6 +89,5 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('usuario', JSON.stringify(usuario));
         alert("Contraseña cambiada exitosamente.");
         form.reset();
-        // Opcional: location.reload();
     });
 });

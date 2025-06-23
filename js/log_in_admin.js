@@ -40,7 +40,7 @@ class GestorUsuarios {
 
 document.addEventListener('DOMContentLoaded', function() {
     const gestor = new GestorUsuarios();
-    const form = document.getElementById('form_admin'); // Cambiado a selección por id
+    const form = document.getElementById('form_admin');
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
