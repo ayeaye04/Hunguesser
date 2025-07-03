@@ -16,7 +16,7 @@ class Ahorcado {
     }
 
     reiniciarJuego() {
-        /*Metodo que repara todo para una nueva partida*/
+        /*Metodo que prepara todo para una nueva partida*/
         this.letrasCorrectas = Array(this.palabraSecreta.length).fill("");
         this.errores = 0;
         this.letrasIncorrectas = [];
@@ -50,6 +50,7 @@ class Ahorcado {
     }
 
     mostrarLetrasCorrectas(letra) {
+        /*Metodo que muestra las letras correctas de la palabra secreta*/
         for (let i = 0; i < this.palabraSecreta.length; i++) {
             if (this.palabraSecreta[i] === letra) {
                 let el = document.getElementById(`letra-${i}`);
@@ -92,7 +93,7 @@ class Ahorcado {
     manejarLetraIngresada(letra) {
         /*Metodo que maneja la letra ingresada. Si la letra ya fue usada no hace nada
         Si la letra es parte de la palabra secreta muestra la letra y la marca en el tablero y verifica victoria.
-        Sino la agrega a la lista de eltras incorrectas, suma un error, actualiza imagen y marca letra en el tablero. 
+        Sino la agrega a la lista de letras incorrectas, suma un error, actualiza imagen y marca letra en el tablero. 
         Despues detecta si perdio */
         if (this.letrasCorrectas.includes(letra) || this.letrasIncorrectas.includes(letra)) {
             return;

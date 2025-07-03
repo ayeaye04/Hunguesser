@@ -1,70 +1,10 @@
-class Usuario {
-    constructor(email, password, nombre, apellido, alias) {
-        this.email = email;
-        this.password = password;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.alias = alias;
-    }
-
-    static fromObject(obj) {
-        return new Usuario(obj.email, obj.password, obj.nombre, obj.apellido, obj.alias);
-    }
-}
-
-class GestorUsuarios {
-    constructor() {
-        this.usuarios = this.cargarUsuarios();
-    }
-
-    cargarUsuarios() {
-        const guardados = localStorage.getItem('usuarios');
-        if (guardados) {
-            return JSON.parse(guardados).map(Usuario.fromObject);
-        }
-        // Usuarios de ejemplo
-        return [
-            new Usuario("pepemuleio@correo.com", "12345", "Pepe", "Muleio", "pepegamer"),
-            new Usuario("martinzapa@gmail.com", "12345", "Martin", "Zapa", "martincito"),
-            new Usuario("fasevilla@udc.edu.ar", "12345", "Florencia", "Sevilla", "colofalsa"),
-            new Usuario("bnwilliams@udc.edu.ar", "12345", "Brandon", "Williams", "brandonico")
-        ];
-    }
-
-    guardarUsuarios() {
-        localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
-    }
-
-    buscarUsuario(email, password) {
-        return this.usuarios.find(u => u.email === email && u.password === password);
-    }
-}
-
+/*Este js maneja la logica al crear un nuevo usuario. 
+Utiliza la clase "Usuario" que esta en usuarios.js*/
 document.addEventListener('DOMContentLoaded', function() {
     const gestor = new GestorUsuarios();
-    const form = document.querySelector('form[action="../extranet/inicio_usuario.html"]');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = form.usuario.value.trim();
-            const password = form.contrasenia.value.trim();
+    const registroForm = document.getElementById('form_registro');
 
-            const user = gestor.buscarUsuario(email, password);
-
-            if (user) {
-                localStorage.setItem('usuario', JSON.stringify(user));
-                window.location.href = "../extranet/inicio_usuario.html";
-            } else {
-                alert("Usuario o contraseña incorrectos.");
-            }
-        });
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const forms = document.querySelectorAll('form[action="../extranet/inicio_usuario.html"]');
-    if (forms.length > 1) {
-        const registroForm = forms[1];
+    if (registroForm) {
         registroForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -82,15 +22,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Crear usuario y guardar
-            const nuevoUsuario = new Usuario(email, password, nombre, apellido, alias);
+            const hoy = new Date();
+            const nacimiento = new Date(fechaNacimiento);
+            let edad = hoy.getFullYear() - nacimiento.getFullYear();
+            const mes = hoy.getMonth() - nacimiento.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+                edad--;
+            }
+
+            if (edad < 12) {
+                alert("Debes tener al menos 12 años para registrarte.");
+                return;
+            }
+
+            if (gestor.buscarPorEmail(email)) {
+                alert("Ya existe un usuario con ese correo.");
+                return;
+            }
+
+            if (gestor.buscarPorAlias(alias)) {
+                alert("Ese alias ya está en uso.");
+                return;
+            }
+
+            const nuevoUsuario = new Usuario(email, password, nombre, apellido, alias, fechaNacimiento, genero);
             gestor.usuarios.push(nuevoUsuario);
             gestor.guardarUsuarios();
 
-            // Guardar usuario actual en localStorage
             localStorage.setItem('usuario', JSON.stringify(nuevoUsuario));
-
-            // Redirigir
             window.location.href = "../extranet/inicio_usuario.html";
         });
     }
