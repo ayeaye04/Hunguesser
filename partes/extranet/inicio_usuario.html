@@ -21,44 +21,43 @@
             <!--cabecera-->
             <div id="logo_udc">
                 <a href="https://udc.edu.ar/">
-                    <img src="../../fotos/logo_udc.jpg" width="130" alt="logo udc">
+                    <img class="udc" src="../../fotos/logo_udc.jpg" alt="logo udc">
                 </a>
             </div>
 
             <div class="center">
                 <div class="titulo">Hanguesser</div>
                 <a href="./inicio_usuario.html">
-                    <img src="../../fotos/logo_color.png" width="100" alt="Logo">
+                    <img src="../../fotos/logo_color.png" alt="Logo">
                 </a>
             </div>
 
-            <!--menu desplegable--> 
+            <!--menu desplegable-->
             <nav id="menu" class="menu">
-                <div class="submenu">
-                    <a>Menu</a>
+                <div class="submenu" >
+                    <a id="NombreUsuario">NombreUsuario</a>
                     <ul class="desplegable">
-                        <hr>
                         <li>
                             <a href="../internet/como_jugar.html">Como Jugar</a>
                         </li>
-                        <hr>
                         <li>
-                            <a href="../../index.html">Cerrar Sesión</a>
+                            <a href="#" id="salir">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>
             </nav>
+            <img class="perfil" src="../../fotos/perfil_default.jpg" alt="perfil">
         </header>
 
 
         <main class="horizontal">
-            <img id="imagenAhorcado" src="../../fotos/ahorcado0.jpg" alt="Ahorcado" width="250" height="250">
+            <img class="ahorcado" id="imagenAhorcado" src="../../fotos/ahorcado0.jpg" alt="Ahorcado" width="250" height="250">
 
-            <section class="vertical">
+            <section class="vertical juego">
                 <!--tabla que representa la palabra a adivinar-->
                 <table id="palabraAdivinar"> 
                     <tbody>
-                        <tr id="filaLetras"></tr>
+                        <tr class="celdas" id="filaLetras"></tr>
                     </tbody>
                 </table>
 
@@ -70,7 +69,7 @@
                 </section>
             </section>
 
-            <section class="horizontal">
+            <section class="horizontal tabla">
                 <!-- Solo muestra la parte de la tabla teclado -->
                 <table class="teclado">
                     <tbody>
@@ -239,11 +238,11 @@
                         </div>
                         <div>
                             <a href="https://www.instagram.com/fsevilla29/">
-                                <img src="../../fotos/insta.webp" width="20" alt="instagram">
+                                <img src="../../fotos/insta.webp" alt="instagram">
                             </a>
                         </div>
                     </div>
-                    
+
                     <div>
                         <h4>Brandon Williams</h4>
                         <div>
@@ -251,7 +250,7 @@
                         </div>
                         <div>
                             <a href="https://www.instagram.com/branwlls/">
-                                <img src="../../fotos/insta.webp" width="20" alt="instagram">
+                                <img src="../../fotos/insta.webp" alt="instagram">
                             </a>
                         </div>
                     </div>

@@ -1,6 +1,13 @@
 /*pagina de administracion*/
+body{
+    background-color: #738cff;
+}
+
+header{
+    background-color: #263da4;
+}
+
 main {
-    background-color: #16a93b;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,4 +30,8 @@ main .confirmar {
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 1em;
+}
+
+footer{
+    background-color: #263da4;
 }

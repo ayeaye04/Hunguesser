@@ -25,9 +25,10 @@ header .center {
 header .titulo {
     font-size: 4rem; /*Tamaño de fuente, ajusta este valor según lo necesites*/
     color: #ffffff; 
-    margin-right: 10px; /*espacio a la derecha del título*/
+    margin-right: 10px;
     display: inline-block; /*se alinea horizontalmente*/
     white-space: nowrap; /* Evita que se quiebre la palabra en varias lineas*/
+
 }
 
 /*boton de salir en admin*/
@@ -35,29 +36,31 @@ header .salir{
     background-color: #fcd24f;
     color: black;
     font-family: 'occams_eraser', sans-serif;
-    font-size: 1.5em; 
+    font-size: 1.5vw; 
     max-width: 7em; 
     padding: .5em 1em;
     border-radius: .5em;
     display: inline-flex; 
     margin-right: .5em;
     white-space: nowrap;
+    margin-left: -9vw;
 }
 
 /* Menu */
 #menu {
     background-color: #fcd24f;
     color: #251847;
-    padding: .5em 1em; /*separa texto del borde del fondo*/
+    padding: .5em 1.5em; /*separa texto del borde del fondo*/
     border-radius: .5em; /*redondeo*/
     display: inline-flex; 
     white-space: nowrap;
     min-width: 3vw; 
     min-height: 1.5vw;
-    font-size: 1.5em;
-    margin-right: .5em;
+    font-size: 1.5vw;
+    margin-right: 1em;
     align-items: center; /*Alinea verticalmente el contenido al centro del contenedor.*/
     justify-content: center; /*Alinea horizontalmente el contenido al centro del contenedor.*/
+    margin-left: -9vw;
 }
 
 #menu .submenu {
@@ -65,6 +68,7 @@ header .salir{
 }
 
 #menu .desplegable {
+    text-align: center;
     max-height: 0;
     overflow: hidden;
     opacity: 0; /*oculta el contenido*/ 
@@ -72,11 +76,23 @@ header .salir{
     background-color: #fffcf2;
     padding: 1em;
     top: 100%; /*lo coloca justo debajo del menu*/
-    right: 0; 
-    flex-direction: column; /*las opciones se organiza en columnas*/
-    gap: 1em; /*espacio entre los elementos*/
+    right: -4vw;
+    margin-right: 1vw;
+    flex-direction: column;
+    gap: 1em;
     transition: max-height 0.2s ease, opacity 0.2s ease;
+    list-style: none;
 }
+
+.desplegable li{
+    border-bottom: 1px solid #000;
+    padding: .5em;
+}
+
+.desplegable li:last-child{
+    border-bottom: none;
+}
+
 /*activa el menu desplegable al pasar el mouse*/
 #menu .submenu:hover .desplegable {
     max-height: 500px;
@@ -85,4 +101,21 @@ header .salir{
 
 #menu a {
     text-decoration: none;
+}
+
+header img {
+    width: 10vw;
+    max-width: 100px;
+}
+
+header img.udc {
+    width: 13vw;
+    max-width: 130px;
+}
+
+.perfil{
+    border-radius: 50%;
+    margin-left: -3.3vw;
+    max-width: 100px;
+    margin-right: .5vw;
 }

@@ -1,6 +1,13 @@
 /*inicio de secion para administradores*/
+body{
+    background-color: #738cff;
+}
+
+header{
+    background-color: #263da4;
+}
+
 main {
-    background-color: #16a93b;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,4 +56,8 @@ legend {
     border-radius: 8px;
     display: inline-flex;
     flex-wrap: wrap;
+}
+
+footer{
+    background-color: #263da4;
 }

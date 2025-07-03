@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         aPerfil.textContent = 'Perfil';
         aPerfil.href = '#'; // No navega por defecto
 
-        // Evento para redireccionar dinámicamente
+        //evento para redireccionar dinamicamente
         aPerfil.addEventListener('click', function(event) {
             event.preventDefault();
             window.location.href = './perfil.html';
@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         liPerfil.appendChild(aPerfil);
 
-        // Inserta el enlace de perfil como primer elemento del menú
+        //inserta perfil como primer elemento del menu
         menu.insertBefore(liPerfil, menu.firstChild);
 
     }
 
-    // Redirección dinámica al hacer clic en "Perfil" desde el menú
+    //redireccion dinamica
     const perfilLink = document.querySelector('nav.menu a[href="./perfil.html"]');
     if (perfilLink) {
         perfilLink.addEventListener('click', function(event) {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- El resto del código para mostrar alias y correo en perfil.html ---
+    //codigo para mostrar alias y correo en perfil
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     if (!usuario) return;
 
@@ -43,14 +43,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (h2) {
         h2.innerHTML = `
             ${usuario.alias}
-            <button>✏️</button>
         `;
     }
 
     if (h3) {
         h3.innerHTML = `
             ${usuario.email}
-            <button>✏️</button>
         `;
     }
 
@@ -58,9 +56,24 @@ document.addEventListener('DOMContentLoaded', function() {
     if (tdNombreUsuario) {
         tdNombreUsuario.textContent = usuario.alias;
     }
+
+    const aNombreUsuario = document.querySelector('a#NombreUsuario');
+    if (aNombreUsuario) {
+        aNombreUsuario.textContent = usuario.alias;
+    }
+
+    //codigo para cerrar sesion
+    const Salir = document.getElementById('salir');    //usa id salr
+    if (Salir) {    //si se preciona o se usa
+        Salir.addEventListener('click', function() {
+            localStorage.removeItem('usuario');
+            sessionStorage.clear();
+            window.location.href = '../../index.html';
+        });
+    }
 });
 
-/*cambiar contraseñas*/
+//cambiar contraseñas
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('cambio_contrasenia');
     const usuario = JSON.parse(localStorage.getItem('usuario'));

@@ -9,10 +9,10 @@ main.horizontal {
 /* Cada sección (formulario) */
 main.horizontal section {
     flex: 1;
-    min-width: 320px; /* para que no se achique demasiado */
+    min-width: 320px;
 }
 
-/* Fieldset con layout vertical para el login */
+/*para el login*/
 fieldset.vertical {
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@ fieldset.vertical {
     padding: 1.5em;
 }
 
-/* Fieldset para nuevo usuario, mismo estilo pero con columnas internas */
+/*para nuevo usuario, mismo estilo pero con columnas internas*/
 form fieldset {
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@ form fieldset {
     padding: 1.5em;
 }
 
-/* Leyendas (títulos) */
+/*titulos*/
 legend {
     font-weight: bold;
     font-size: 1.3em;
@@ -45,15 +45,13 @@ legend {
     gap: 2em;
 }
 
-/* Cada columna con inputs verticales */
 .columna {
     display: flex;
     flex-direction: column;
     gap: 0.8em;
-    flex: 1; /* columnas iguales */
+    flex: 1;
 }
 
-/* Labels */
 label {
     font-weight: 600;
     margin-bottom: 0.2em;
@@ -82,7 +80,6 @@ select:focus {
     outline: none;
 }
 
-/* Checkbox con texto al lado */
 .recordar {
     display: flex;
     align-items: center;
@@ -90,7 +87,6 @@ select:focus {
     margin-top: 0.5em;
 }
 
-/* Botones con estilo visual */
 .boton {
     background-color: #fcd24f;
     color: black;
@@ -111,12 +107,12 @@ select:focus {
     background-color: #e0b93d;
 }
 
-/* Centrar el botón en su contenedor (fieldset) */
+/*centra el botón en su contenedor */
 form fieldset > .boton {
     align-self: center;
 }
 
-/* Para que el formulario de nuevo usuario no se desborde */
+/*para que nuevo usuario no se desborde*/
 @media (max-width: 720px) {
     .form-doble-columna {
         flex-direction: column;

@@ -6,14 +6,15 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 80vw;
+    height: 50vh;
     margin: 0 auto;
     padding: 2em 0;
 }
 
 h2, h3 {
     margin: 0;
-    font-size: 2em;
+    font-size: 2vw;
     color: #ffffff;
 }
 
@@ -23,7 +24,7 @@ main .confirmar{
     color: black;
     font-family: 'occams_eraser', sans-serif;
     white-space: nowrap;
-    font-size: .8em;
+    font-size: 1vw;
     max-width: auto;
     padding: .5em 1em;
     border-radius: .5em;
@@ -35,7 +36,7 @@ main .salir{
     background-color: #f81f00;
     color: #f4eee8;
     font-family: 'occams_eraser', sans-serif;
-    font-size: .8em;
+    font-size: 1vw;
     max-width: auto;
     padding: .5em 1em;
     border-radius: .5em;
@@ -56,4 +57,20 @@ select {
     font-size: 18px;        
     border-radius: 8px; 
     border: 2px solid #ddd;  
+}
+
+main img{
+    max-width: 300px;
+    padding-top: 5vw;
+}
+
+.usuario{
+    padding-right: 15vw;
+}
+
+.contrasenias{
+    padding-top: 2vw;
+    min-width: 20vw;
+    max-height: 30vw;
+    font-size: large;
 }
