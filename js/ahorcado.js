@@ -1,7 +1,8 @@
+const PALABRAS = ["ÑOQUIS", "GATO", "PERRO", "CASA", "LUNA", "SOL", "RATON", "ARBOL", "FLORES"]; //constante global
+
 class Ahorcado {
     /*Clase que maneja la logica del juego*/ 
     constructor() {
-        this.palabras = ["ÑOQUIS", "GATO", "PERRO", "CASA", "LUNA", "SOL", "RATON", "ARBOL", "FLORES"];
         this.palabraSecreta = "";
         this.errores = 0;
         this.letrasIncorrectas = [];
@@ -12,12 +13,12 @@ class Ahorcado {
 
     elegirPalabraAleatoria() {
         /*Metodo que elige una palabra de la lista "palabras" y lo guarda en "palabraSecreta"*/
-        this.palabraSecreta = this.palabras[Math.floor(Math.random() * this.palabras.length)];
+        this.palabraSecreta = PALABRAS[Math.floor(Math.random() * PALABRAS.length)];
     }
 
     reiniciarJuego() {
         /*Metodo que prepara todo para una nueva partida*/
-        this.letrasCorrectas = Array(this.palabraSecreta.length).fill("");
+        this.letrasCorrectas = Array(PALABRAS.length).fill("");
         this.errores = 0;
         this.letrasIncorrectas = [];
         this.inicializarTablero();
@@ -126,7 +127,23 @@ class Ahorcado {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function manejarSubmitJuego(e, juego) {
+    e.preventDefault();
+    const inputLetra = document.getElementById("letra");
+    let letra = "";
+    if (inputLetra) {
+        letra = inputLetra.value.toUpperCase();
+        inputLetra.value = "";
+    } else {
+        console.error('No se pudo encontrar el input con id "letra" para obtener el valor.');
+    }
+
+    if (letra.match(/^[A-ZÑ]$/)) {
+        juego.manejarLetraIngresada(letra);
+    }
+}
+
+function iniciarJuegoAhorcado() {
     const filaLetras = document.getElementById("filaLetras");
     const imagenAhorcado = document.getElementById("imagenAhorcado");
     const form = document.querySelector("form");
@@ -135,20 +152,10 @@ document.addEventListener("DOMContentLoaded", () => {
         juego.elegirPalabraAleatoria();
         juego.reiniciarJuego();
 
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            const inputLetra = document.getElementById("letra");
-            let letra = "";
-            if (inputLetra) {
-                letra = inputLetra.value.toUpperCase();
-                inputLetra.value = "";
-            } else {
-                console.error('No se pudo encontrar el input con id "letra" para obtener el valor.');
-            }
-
-            if (letra.match(/^[A-ZÑ]$/)) {
-                juego.manejarLetraIngresada(letra);
-            }
+        form.addEventListener("submit", function(e) {
+            manejarSubmitJuego(e, juego);
         });
     }
-});
+}
+
+document.addEventListener("DOMContentLoaded", iniciarJuegoAhorcado);

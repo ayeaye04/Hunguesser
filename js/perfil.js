@@ -4,15 +4,20 @@ class PerfilUsuario {
         //Obtiene el usuario actual almacenado en localStorage
         this.usuario = JSON.parse(localStorage.getItem('usuario'));
         //Espera a que el documento esté completamente cargado para ejecutar el resto
-        document.addEventListener('DOMContentLoaded', () => this.inicializar());
+        document.addEventListener('DOMContentLoaded', this.inicializar.bind(this));
     }
 
     inicializar() {
-    /*Método principal que llama a todos los subprocesos de inicialización*/
+        /*Método principal que llama a todos los subprocesos de inicialización*/
         this.insertarEnMenu();
         this.mostrarDatosUsuario();
         this.configurarCerrarSesion();
         this.configurarCambioContrasenia();
+    }
+
+    manejarClickPerfil(event) {
+        event.preventDefault();
+        window.location.href = './perfil.html';
     }
 
     insertarEnMenu() {
@@ -26,20 +31,14 @@ class PerfilUsuario {
         aPerfil.href = '#';
 
         //Agrega evento al enlace para redirigir a la página de perfil
-        aPerfil.addEventListener('click', (event) => {
-            event.preventDefault();
-            window.location.href = './perfil.html';
-        });
+        aPerfil.addEventListener('click', this.manejarClickPerfil);
 
         liPerfil.appendChild(aPerfil);
         menu.insertBefore(liPerfil, menu.firstChild);
 
         const perfilLink = document.querySelector('nav.menu a[href="./perfil.html"]');
         if (perfilLink) {
-            perfilLink.addEventListener('click', (event) => {
-                event.preventDefault();
-                window.location.href = './perfil.html';
-            });
+            perfilLink.addEventListener('click', this.manejarClickPerfil);
         }
     }
 
@@ -63,16 +62,46 @@ class PerfilUsuario {
         if (aNombreUsuario) aNombreUsuario.textContent = this.usuario.alias;
     }
 
+    manejarCerrarSesion() {
+        localStorage.removeItem('usuario');
+        window.location.href = '../../index.html';
+    }
+
     configurarCerrarSesion() {
         /*Metodo que configura el botón de cerrar sesión (elimina los datos y redirige al inicio)*/
         const btnSalir = document.getElementById('salir');
         if (btnSalir) {
-            btnSalir.addEventListener('click', () => {
-                localStorage.removeItem('usuario');
-                sessionStorage.clear();
-                window.location.href = '../../index.html';
-            });
+            btnSalir.addEventListener('click', this.manejarCerrarSesion);
         }
+    }
+
+    manejarCambioContrasenia(e) {
+        e.preventDefault();
+
+        const form = document.getElementById('cambio_contrasenia');
+        if (!form || !this.usuario) return;
+
+        const password = form.contrasenia_original.value;
+        const nueva = form.contrasenia_nueva.value;
+        const confirmar = form.confirmar_contrasenia.value;
+
+        // Verifica si la contraseña actual es correcta
+        if (password !== this.usuario.password) {
+            alert("La contraseña actual es incorrecta.");
+            return;
+        }
+
+        // Verifica si las nuevas contraseñas coinciden
+        if (nueva !== confirmar) {
+            alert("Las contraseñas nuevas no coinciden.");
+            return;
+        }
+
+        // Guarda la nueva contraseña en el usuario actual y en localStorage
+        this.usuario.password = nueva;
+        localStorage.setItem('usuario', JSON.stringify(this.usuario));
+        alert("Contraseña cambiada exitosamente.");
+        form.reset();
     }
 
     configurarCambioContrasenia() {
@@ -80,31 +109,7 @@ class PerfilUsuario {
         const form = document.getElementById('cambio_contrasenia');
         if (!form || !this.usuario) return;
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const password = form.contrasenia_original.value;
-            const nueva = form.contrasenia_nueva.value;
-            const confirmar = form.confirmar_contrasenia.value;
-
-            // Verifica si la contraseña actual es correcta
-            if (password !== this.usuario.password) {
-                alert("La contraseña actual es incorrecta.");
-                return;
-            }
-
-            // Verifica si las nuevas contraseñas coinciden
-            if (nueva !== confirmar) {
-                alert("Las contraseñas nuevas no coinciden.");
-                return;
-            }
-
-            // Guarda la nueva contraseña en el usuario actual y en localStorage
-            this.usuario.password = nueva;
-            localStorage.setItem('usuario', JSON.stringify(this.usuario));
-            alert("Contraseña cambiada exitosamente.");
-            form.reset();
-        });
+        form.addEventListener('submit', this.manejarCambioContrasenia.bind(this));
     }
 }
 
