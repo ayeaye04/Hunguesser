@@ -1,19 +1,22 @@
 class Ahorcado {
+    /*Clase que maneja la logica del juego*/ 
     constructor() {
         this.palabras = ["ÑOQUIS", "GATO", "PERRO", "CASA", "LUNA", "SOL", "RATON", "ARBOL", "FLORES"];
         this.palabraSecreta = "";
         this.errores = 0;
         this.letrasIncorrectas = [];
         this.letrasCorrectas = [];
-        // Detecta si está en index o en inicio_usuario
+        //Detecta si está en index o en inicio_usuario
         this.esInicioUsuario = window.location.pathname.includes("inicio_usuario.html");
     }
 
     elegirPalabraAleatoria() {
+        /*Metodo que elige una palabra de la lista "palabras" y lo guarda en "palabraSecreta"*/
         this.palabraSecreta = this.palabras[Math.floor(Math.random() * this.palabras.length)];
     }
 
     reiniciarJuego() {
+        /*Metodo que repara todo para una nueva partida*/
         this.letrasCorrectas = Array(this.palabraSecreta.length).fill("");
         this.errores = 0;
         this.letrasIncorrectas = [];
@@ -23,6 +26,8 @@ class Ahorcado {
     }
 
     inicializarTablero() {
+        /*Metodo que vacia el tablero de la palabra secreta anterior y por cada letra de la nueva palabra secreta, 
+        agrega una celda <td> con un guión bajo para mostrar las letras ocultas. Le da un id a cada letra*/
         const fila = document.getElementById("filaLetras");
         if (!fila) return;
         fila.innerHTML = "";
@@ -34,9 +39,9 @@ class Ahorcado {
     }
 
     actualizarImagenAhorcado() {
+        /*Metodo que actualiza la imagen del ahorcado en base a los errores*/
         const img = document.getElementById("imagenAhorcado");
         if (!img) return;
-        // Ajusta la ruta según la página
         if (this.esInicioUsuario) {
             img.src = "../../fotos/ahorcado" + this.errores + ".jpg";
         } else {
@@ -56,31 +61,39 @@ class Ahorcado {
     }
 
     verificarVictoria() {
+        /*Metodo que une todas las letras correctas y compara si forman la palabra secreta*/
         return this.letrasCorrectas.join("") === this.palabraSecreta;
     }
 
     marcarLetraUsada(letra, esCorrecta) {
+        /*Metodo que estiliza las letras del tablero*/
         const teclas = document.querySelectorAll(".tecla");
         teclas.forEach(td => {
             if (td.textContent.toUpperCase() === letra) {
-                td.classList.add("usada");
                 if (esCorrecta) {
                     td.classList.add("correcta");
+                    td.classList.remove("incorrecta");
                 } else {
                     td.classList.add("incorrecta");
+                    td.classList.remove("correcta");
                 }
             }
         });
     }
 
     limpiarTeclado() {
+        /*Metodo que selecciona todos los elementos HTML de clase "tecla"
+        los recorre y les remueve las clases CSS */
         document.querySelectorAll(".tecla").forEach(td => {
-            td.classList.remove("usada", "correcta", "incorrecta");
+            td.classList.remove("correcta", "incorrecta");
         });
     }
 
     manejarLetraIngresada(letra) {
-        // Si ya la usó, no hacer nada
+        /*Metodo que maneja la letra ingresada. Si la letra ya fue usada no hace nada
+        Si la letra es parte de la palabra secreta muestra la letra y la marca en el tablero y verifica victoria.
+        Sino la agrega a la lista de eltras incorrectas, suma un error, actualiza imagen y marca letra en el tablero. 
+        Despues detecta si perdio */
         if (this.letrasCorrectas.includes(letra) || this.letrasIncorrectas.includes(letra)) {
             return;
         }
@@ -113,7 +126,6 @@ class Ahorcado {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Solo ejecuta si existen los elementos del juego
     const filaLetras = document.getElementById("filaLetras");
     const imagenAhorcado = document.getElementById("imagenAhorcado");
     const form = document.querySelector("form");
